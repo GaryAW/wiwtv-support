@@ -28,3 +28,7 @@ a { color: var(--accent); }
 @media (max-width: 560px) { .toc { columns: 1; } }
 footer { color: var(--muted); font-size: 13px; text-align: center; padding: 24px 16px 40px; }
 .muted { color: var(--muted); }
+
+.get-app{display:inline-block;background:#000;color:#fff;text-decoration:none;font-weight:600;
+padding:12px 22px;border-radius:12px;font-size:17px}
+.get-app:hover{background:#333}
