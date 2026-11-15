@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add to WIWTv</title>
+<meta name="description" content="A friend shared a show with you. Add it to WIWTv – What I'm Watching.">
+<meta name="apple-itunes-app" content="app-id=6831443222">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header><div class="wrap"><div class="logo">📺</div><div><h1>WIWTv</h1><p>What I'm Watching TV</p></div></div></header>
+<main class="wrap">
+<!-- A friend's share link (FS §6.6): add.html?show=<TVmaze id>&name=<show name> -->
+<h2 id="title">A friend shared a show with you</h2>
+<p id="lead">Add it to WIWTv to keep track of the next episode.</p>
+<p><a class="get-app" id="open" href="wiwtv://">Open in WIWTv</a></p>
+<p class="muted">Don't have WIWTv yet? <a href="https://apps.apple.com/app/id6831443222">Get it free on the App Store</a>, then come back and tap Open in WIWTv.</p>
+</main>
+<footer>WIWTv by Gary Wilkinson · TV information from <a href="https://www.tvmaze.com/">TVmaze.com</a> (CC BY-SA 4.0)</footer>
+<script>
+  const q = new URLSearchParams(location.search);
+  const id = (q.get("show") || "").replace(/[^0-9]/g, "");
+  const name = (q.get("name") || "").slice(0, 120);
+  if (name) {
+    document.getElementById("title").textContent = name;
+    document.getElementById("lead").textContent = "A friend shared " + name + " with you. Add it to WIWTv to keep track of the next episode.";
+    document.title = "Add " + name + " to WIWTv";
+  }
+  if (id) document.getElementById("open").href = "wiwtv://add?show=" + id;
+</script>
+</body>
+</html>
